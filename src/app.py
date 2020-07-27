@@ -54,5 +54,10 @@ def deleteProduct(product_name):
         return jsonify({"error": "Product not Found", "message": "❌ Product not found"})
 
 
+@app.route("/<path:path_route>", methods=["GET", "POST", "PUT", "DELETE"])
+def errorPath(path_route):
+    return jsonify({"error": f"{path_route} is not a valid path"})
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port=4000)
+    app.run(debug=True, host="0.0.0.0", port=4000)
